@@ -8,6 +8,7 @@
 
 * __README.md__<br>This readme file.
 * __trotter.R__<br>The R code defining the classes and constructors.
+* [__trotter_0.5.tar.gz__](https://github.com/ram6ler/trotter/raw/master/trotter_0.5.tar.gz)<br>The R package.
 
 ### Introduction
 
