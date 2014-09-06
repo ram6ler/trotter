@@ -100,11 +100,37 @@ setMethod(
   )
 )
 
+#' Permutations Pseudo-Vector Length
+#' @description
+#' Get the length of a \code{PPV} instance.
+#' @param x an instance of \code{PPV}
+#' @return the number of permutations in pseudo-vector \code{x}
+#' @details
+#' Since \code{x} contains all the \code{k}-permutations of objects in vector
+#' \code{items}, \code{length(x)} will return 
+#' \code{choose(length(items), k) * factorial(k)}.
+#' @seealso Permutationsations Pseudo-Vector \code{\link{ppv}} 
+
 setMethod(
   f = "length",
   signature = "PPV",
   definition = function(x) choose(length(x@items), x@k) * factorial(x@k)
 )
+
+#' Retrieving a Permutation by Index
+#' @description
+#' Access a permutation stored in a \code{PPV} instance by index.
+#' @param x an instance of \code{PPV}.
+#' @param i an index specifying the position of the sought permutation.
+#' @param j not used.
+#' @param drop not used.
+#' @return the permutation located at position \code{i} in pseudo-vector \code{x}
+#' @details
+#' The permutation at index \code{i} of pseudo-vector \code{x} is not actually 
+#' stored in memory but calculated as needed. The extract method is used solely
+#' for interpretation.
+#' 
+#' @seealso Permutations Pseudo-Vector \code{\link{ppv}} 
 
 setMethod(
   f = "[",
@@ -130,23 +156,28 @@ setMethod(
 #' @param items a vector of objects to be permuted.
 #' @return an instance of \code{PPV}.
 #' @author Richard Ambler
+#' @details
+#' The arrangement of permutations is similar, but in many cases not identical, 
+#' to that obtained from the
+#' Steinhaus-Johnson-Trotter algorithm (see references).
 #' @examples
-#' # create a pseudo-vector of 10-permutations from the first 15 letters
-#' p <- ppv(10, letters[1:15])
+#' # create a pseudo-vector of 5-permutations from the first 10 letters
+#' p <- ppv(5, letters[1:10])
 #' # generate a description
 #' print(p)
 #' # compatable with length
 #' length(p)
 #' # inspect a few of the permutations "stored" in p
 #' p[1]
-#' p[1000000]
-#' p[10897286400]
+#' p[1000]
+#' p[length(p)]
 #' @seealso Combinations Pseudo-Vector \code{\link{cpv}}
 #' @references
 #' Steinhaus-Johnson-Trotter algorithm. (2014, April 29).
 #' In \emph{Wikipedia, The Free Encyclopedia}.
 #' Retrieved 13:24, September 5, 2014
 #' @export
+#' @import methods
 
 ppv <- function(k, items) new(
   Class = "PPV", 
@@ -179,11 +210,37 @@ setMethod(
   )
 )
 
+#' Combinations Pseudo-Vector Length
+#' @description
+#' Get the length of a \code{CPV} instance.
+#' @param x an instance of \code{CPV}
+#' @aliases length
+#' @return the number of combinations in pseudo-vector \code{x}
+#' @details
+#' Since \code{x} contains all the \code{k}-combinations of objects in vector
+#' \code{items}, \code{length(x)} will return \code{choose(length(items), k)}.
+#' @seealso Combinations Pseudo-Vector \code{\link{cpv}} 
+
 setMethod(
   f = "length",
   signature = "CPV",
   definition = function(x) choose(length(x@items), x@k)
 )
+
+#' Retrieving a Combination by Index
+#' @description
+#' Access a combination stored in a \code{CPV} instance by index.
+#' @param x an instance of \code{CPV}.
+#' @param i an index specifying the position of the sought permutation.
+#' @param j not used.
+#' @param drop not used.
+#' @return the combination located at position \code{i} in pseudo-vector \code{x}
+#' @details
+#' The combination at index \code{i} of pseudo-vector \code{x} is not actually 
+#' stored in memory but calculated as needed. The extract method is used solely
+#' for interpretation.
+#' 
+#' @seealso Combinations Pseudo-Vector \code{\link{cpv}}
 
 setMethod(
   f = "[",
@@ -209,6 +266,12 @@ setMethod(
 #' @param items a vector of objects to be permuted.
 #' @return an instance of \code{CPV}.
 #' @author Richard Ambler
+#' @details
+#' The combinations are arranged according to the order in which the objects
+#' appear in \code{items}. Combinations containing the first object in 
+#' \code{items} are followed by combinations that contain the second object
+#' but not the first, which are followed by combinations that contain the third
+#' but neither the first or the second, etc.
 #' @examples
 #' # create a pseudo-vector of 10-combinations from the first 15 letters
 #' c <- cpv(10, letters[1:15])
@@ -226,6 +289,7 @@ setMethod(
 #' In \emph{Wikipedia, The Free Encyclopedia}.
 #' Retrieved 13:24, September 5, 2014
 #' @export
+#' @import methods
 
 cpv <- function(k, items) new(
   Class = "CPV", 
