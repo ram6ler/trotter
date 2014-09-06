@@ -126,7 +126,7 @@ perms.10.of.15[1]
 ```
 
 ```r
-perms.10.of.15[10000000000L]
+perms.10.of.15[10000000000]
 ```
 
 ```
@@ -134,7 +134,7 @@ perms.10.of.15[10000000000L]
 ```
 
 ```r
-perms.10.of.15[10897286400L]
+perms.10.of.15[10897286400]
 ```
 
 ```
@@ -142,7 +142,7 @@ perms.10.of.15[10897286400L]
 ```
 
 ### Example: application
-The following example illustrates an application in which we are interested in finding which 3-combination from a set of predictors produces a linear model with a greatest $R^2$ value.
+The following example illustrates an application in which we are interested in finding which 3-combination from a set of predictors produces a linear model with a greatest R-squared value.
 
 
 ```r
