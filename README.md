@@ -28,6 +28,12 @@ We can think about instances of `PPV` and `CPV` as vectors containing all the po
 
 ### Example: basic use
 
+The `trotter` package has been published on [CRAN](http://cran.r-project.org/) and can be loaded from within the R environment:
+
+```r
+> package.intall("trotter")
+``` 
+Once the package has been installed it may be used as follows:
 
 ```r
 library(trotter)
