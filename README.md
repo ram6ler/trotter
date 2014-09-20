@@ -7,24 +7,33 @@
 
 ### Repository contents
 
-* __README.md__<br>This readme file.
-* __trotter.R__<br>The R code defining the classes and constructors.
+* __README.md__ (This readme file.)
+* __combinations_pv.R__
+* __permutations_pv.R__
+* __selectionss_pv.R__ (Combinations with repetition allowed.)
+* __amalgams_pv.R__ (Permutations with repetition allowed.)
+* __subsets_pv.R__
+* __trotter_helpers.R__
 
 ### Introduction
 
-The `trotter` package provides the R user access to two classes - `PPV` (Permutations Pseudo-vector) and `CPV` (Combinations Pseudo-vector) - that simplify the process of working with permutations and combinations of objects stored in a vector.
+The `trotter` package provides the R user access to five classes - `PPV` (Permutations Pseudo-Vector), `CPV` (Combinations Pseudo-Vector), `SPV` (Selections Pseudo-Vector), `APV` (Amalgams Pseudo-Vector) and `SSPV`` (Subsets Pseudo-Vector) - that simplify the process of working with permutations and combinations of objects stored in a vector. 
 
-Instances of `PPV` and `CPV` are compatable with the functions:
+I use the term "selections" for combinations in which the same object may be taken more than once (e.g., a selection of three scoops of icecream from ten different flavours), and "amalgams" for permutations in which the same object can be taken more than once (e.g., an arrangement of coloured pegs in a game of Mastermind).
+
+Instances of these classes are compatable with the functions:
 
 * `length`
 * `[`
 
-Instances of `PPV` and `CPV` are created using the constructors `ppv` and `cpv` respectively. Both constructors have two arguments: 
+The constructors for classes `PPV`, `CPV`, `SPV` and `APV` have two arguments are simply have the same names but with lowercase letters and take two arguments: 
 
 * `k` the number of objects to take.
 * `items` a vector containing the available objects.
 
-We can think about instances of `PPV` and `CPV` as vectors containing all the possible permutations and combinations respectively with the given parameters. (They are pseudo-vectors because they don't actually store the arrangements in memory and can thus be used to "store" very large numbers of arrangements.)
+The constructor for class `SSPV` is but only takes the argument `items`.
+
+We can think about instances of these classes as vectors containing all the possible arrangements with the given parameters. (They are pseudo-vectors because they don't actually store the arrangements in memory and can thus be used to "store" very large numbers of arrangements.)
 
 ### Example: basic use
 
