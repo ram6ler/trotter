@@ -1,10 +1,8 @@
----
-output:
-  html_document: default
----
 
-![](trotter_banner.png)
 
+![](trotter_banner.png) 
+
+## Trotter 0.6
 ## An R package for arranging arrangements
 
 ### Repository contents
