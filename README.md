@@ -1,4 +1,7 @@
-
+---
+output:
+  html_document: default
+---
 
 ![](trotter_banner.png)
 
@@ -8,7 +11,6 @@
 
 * __README.md__<br>This readme file.
 * __trotter.R__<br>The R code defining the classes and constructors.
-* [__trotter_0.5.tar.gz__](https://github.com/ram6ler/trotter/raw/master/trotter_0.5.tar.gz)<br>The R package.
 
 ### Introduction
 
@@ -28,12 +30,6 @@ We can think about instances of `PPV` and `CPV` as vectors containing all the po
 
 ### Example: basic use
 
-The `trotter` package has been published on [CRAN](http://cran.r-project.org/) and can be loaded from within the R environment:
-
-```r
-> package.intall("trotter")
-``` 
-Once the package has been installed it may be used as follows:
 
 ```r
 library(trotter)
@@ -132,7 +128,7 @@ perms.10.of.15[1]
 ```
 
 ```r
-perms.10.of.15[10000000000]
+perms.10.of.15[10000000000L]
 ```
 
 ```
@@ -140,7 +136,7 @@ perms.10.of.15[10000000000]
 ```
 
 ```r
-perms.10.of.15[10897286400]
+perms.10.of.15[10897286400L]
 ```
 
 ```
@@ -148,7 +144,7 @@ perms.10.of.15[10897286400]
 ```
 
 ### Example: application
-The following example illustrates an application in which we are interested in finding which 3-combination from a set of predictors produces a linear model with a greatest R-squared value.
+The following example illustrates an application in which we are interested in finding which 3-combination from a set of predictors produces a linear model with a greatest $R^2$ value.
 
 
 ```r
@@ -248,6 +244,83 @@ summary(best.three.model)
 ## Residual standard error: 2.46 on 28 degrees of freedom
 ## Multiple R-squared:  0.85,	Adjusted R-squared:  0.834 
 ## F-statistic: 52.7 on 3 and 28 DF,  p-value: 1.21e-11
+```
+
+Let's say that we want to look at all possible linear models of this data.
+
+
+```r
+predictor.subsets <- sspv(predictors)
+
+# How many possible linear models are there?
+# (i.e. How many subsets of the predictors exist?)
+length(predictor.subsets)
+```
+
+```
+## [1] 1024
+```
+
+```r
+# Create an array containing all the possible adjusted R-squared values
+adj.r.squared.values <- sapply(
+  # Start at index 2: the first subset (with none of the predictors) is NULL
+  2:length(predictor.subsets), 
+  function(i) summary(model.from.combo(predictor.subsets[i]))$adj.r.squared
+)
+
+# Examine the distribution of adjusted R-squared values possible in a
+# linear fitting using any subset of the predictors predictors
+
+hist(
+  adj.r.squared.values,
+  main = "Possible Adjusted R-squared values from any subset of predictors",
+  xlab = "Adjusted R-squared"
+)
+```
+
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+
+```r
+# Retrieve the model that produced the greatest adjusted R-squared value
+index <- which.max(adj.r.squared.values)
+best.predictors.subset <- predictor.subsets[index]
+best.predictors.subset
+```
+
+```
+## [1] "cyl"  "hp"   "wt"   "qsec" "am"
+```
+
+```r
+best.subset.model <- model.from.combo(best.predictors.subset)
+summary(best.subset.model)
+```
+
+```
+## 
+## Call:
+## lm(formula = as.formula(sprintf("mpg ~ %s", paste(combo, collapse = "+"))), 
+##     data = mtcars)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -3.535 -1.531 -0.167  1.230  4.611 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)   
+## (Intercept)  19.3471    13.4095    1.44   0.1610   
+## cyl          -0.1488     0.7392   -0.20   0.8421   
+## hp           -0.0169     0.0149   -1.14   0.2653   
+## wt           -3.1517     1.0027   -3.14   0.0041 **
+## qsec          0.7382     0.5736    1.29   0.2095   
+## am            2.7294     1.7243    1.58   0.1255   
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.48 on 26 degrees of freedom
+## Multiple R-squared:  0.858,	Adjusted R-squared:  0.831 
+## F-statistic: 31.4 on 5 and 26 DF,  p-value: 3.1e-10
 ```
 
 ### Some details
