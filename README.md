@@ -37,7 +37,7 @@ We can think about instances of these classes as vectors containing all the poss
 
 ### Example: basic use
 
-The `trotter` package has been uploaded to CRAN, so you can install it using:
+The `trotter` package has been uploaded to CRAN, so we can install it using:
 
 ```r
 install.packages("trotter")
