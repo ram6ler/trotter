@@ -99,7 +99,7 @@ setMethod(
 #' # inspect a few of the permutations "stored" in p
 #' p[1]
 #' p[1000]
-#' p[length(p)]
+#' p[30240]
 #' @seealso Combinations Pseudo-Vector \code{\link{cpv}} 
 #' @seealso Amalgams Pseudo-Vector \code{\link{apv}} 
 #' @seealso Selections Pseudo-Vector \code{\link{spv}} 

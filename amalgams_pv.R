@@ -11,8 +11,8 @@ setMethod(
   definition = function(object) cat(
     sprintf(
       paste(
-        "Instance of class SPV\n",
-        "Pseudo-vector containing %s %s-selections (combinations with replacement)\n",
+        "Instance of class APV\n",
+        "Pseudo-vector containing %s %s-amalgams (permutations with replacement)\n",
         "of items taken from the list:\n[%s]",
         collapse = ""
       ),

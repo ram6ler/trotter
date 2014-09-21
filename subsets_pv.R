@@ -30,6 +30,11 @@ setMethod(
 #' @details
 #' Since \code{x} contains all the subsets of objects in vector
 #' \code{items}, \code{length(x)} will return \code{2 ^ length(items)}.
+#' @seealso Permutations Pseudo-Vector \code{\link{ppv}} 
+#' @seealso Combinations Pseudo-Vector \code{\link{cpv}} 
+#' @seealso Amalgams Pseudo-Vector \code{\link{apv}} 
+#' @seealso Selections Pseudo-Vector \code{\link{spv}} 
+
 
 setMethod(
   f = "length",
@@ -92,6 +97,10 @@ setMethod(
 #' ss[1]
 #' ss[1000]
 #' ss[32768]
+#' @seealso Permutations Pseudo-Vector \code{\link{ppv}} 
+#' @seealso Combinations Pseudo-Vector \code{\link{cpv}} 
+#' @seealso Amalgams Pseudo-Vector \code{\link{apv}} 
+#' @seealso Selections Pseudo-Vector \code{\link{spv}}
 #' @export
 #' @import methods
 
