@@ -37,6 +37,13 @@ We can think about instances of these classes as vectors containing all the poss
 
 ### Example: basic use
 
+The `trotter` package has been uploaded to CRAN, so you can install it using:
+
+```r
+install.packages("trotter")
+```
+
+Once it is installed we can create some objects to represent structures commonly encountered in combinatorics. 
 
 ```r
 library(trotter)
