@@ -158,7 +158,7 @@ perms.10.of.15[10897286400L]
 ```
 
 ### Example: application
-The following example illustrates an application in which we are interested in finding which 3-combination from a set of predictors produces a linear model with a greatest $R^2$ value.
+The following example illustrates an application in which we are interested in finding which 3-combination from a set of predictors produces a linear model with a greatest R-squared value.
 
 
 ```r
@@ -261,9 +261,12 @@ summary(best.three.model)
 ```
 
 Let's say that we want to look at all possible linear models of this data.
+This would entail going through all combinations of _any_ length of the predictors.
+Here we can use the `Subsets Pseudo-Vector` class to iterate through all possible subsets:
 
 
 ```r
+# Create a pseudo-vector "containing" all possible subsets.
 predictor.subsets <- sspv(predictors)
 
 # How many possible linear models are there?
