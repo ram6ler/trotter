@@ -10,16 +10,16 @@
 * __README.md__ (This readme file.)
 * __combinations_pv.R__
 * __permutations_pv.R__
-* __selectionss_pv.R__ (Combinations with repetition allowed.)
+* __selections_pv.R__ (Combinations with repetition allowed.)
 * __amalgams_pv.R__ (Permutations with repetition allowed.)
 * __subsets_pv.R__
 * __trotter_helpers.R__
 
 ### Introduction
 
-The `trotter` package provides the R user access to five classes - `PPV` (Permutations Pseudo-Vector), `CPV` (Combinations Pseudo-Vector), `SPV` (Selections Pseudo-Vector), `APV` (Amalgams Pseudo-Vector) and `SSPV`` (Subsets Pseudo-Vector) - that simplify the process of working with permutations and combinations of objects stored in a vector. 
+The `trotter` package provides the R user access to five classes - `PPV` (Permutations Pseudo-Vector), `CPV` (Combinations Pseudo-Vector), `SPV` (Selections Pseudo-Vector), `APV` (Amalgams Pseudo-Vector) and `SSPV`` (Subsets Pseudo-Vector) - that simplify the process of working with permutations, combinations and subsets of objects stored in a vector. 
 
-I use the term "selections" for combinations in which the same object may be taken more than once (e.g., a selection of three scoops of icecream from ten different flavours), and "amalgams" for permutations in which the same object can be taken more than once (e.g., an arrangement of coloured pegs in a game of Mastermind).
+I use the term "selections" for combinations in which the same object may be taken more than once (e.g., a selection of three scoops of icecream from ten different flavours - all three scoops could be of the same flavour), and "amalgams" for permutations in which the same object can be taken more than once (e.g., an arrangement of coloured pegs in the board game Mastermind).
 
 Instances of these classes are compatable with the functions:
 
