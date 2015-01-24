@@ -35,6 +35,8 @@ The constructor for class `SSPV` is but only takes the argument `items`.
 
 We can think about instances of these classes as vectors containing all the possible arrangements with the given parameters. (They are pseudo-vectors because they don't actually store the arrangements in memory and can thus be used to "store" very large numbers of arrangements.)
 
+The trotter library also exists for [Python](https://bitbucket.org/ram6ler/python_trotter/wiki/Home.md) and [Dart](https://bitbucket.org/ram6ler/dart_trotter/wiki/Home).
+
 ### Example: basic use
 
 The `trotter` package has been uploaded to CRAN, so we can install it using:
