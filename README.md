@@ -345,3 +345,5 @@ summary(best.subset.model)
 ### Some details
 
 The permutations "contained" in a `PPV` instance can be thought of as being arranged according to the [Steinhaus-Johnson-Trotter](http://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm) algorithm. The combinations "contained" in a `CPV` instance are arranged in an order corresponding to the order of object appearance in the vector `items`; that is, all the combinations containing the first object are followed by all the combinations containing the second object but not the first, which are followed by all the combinations containing the third object but neither the first or second, etc.
+
+Trotter libraries are also available for [Python](https://bitbucket.org/ram6ler/python_trotter) and [Dart](https://bitbucket.org/ram6ler/dart_trotter).
