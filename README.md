@@ -26,7 +26,7 @@ Instances of these classes are compatable with the functions:
 * `length`
 * `[`
 
-The constructors for classes `PPV`, `CPV`, `SPV` and `APV` have two arguments are simply have the same names but with lowercase letters and take two arguments: 
+The constructors for classes `PPV`, `CPV`, `SPV` and `APV` have have the same names as the classes (but with lowercase letters) and take two arguments: 
 
 * `k` the number of objects to take.
 * `items` a vector containing the available objects.
