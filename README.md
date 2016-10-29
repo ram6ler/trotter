@@ -5,6 +5,8 @@
 ## Trotter 0.6
 ## An R package for arranging arrangements
 
+[![Rdoc](http://www.rdocumentation.org/badges/version/trotter)](http://www.rdocumentation.org/packages/trotter)
+
 ### Repository contents
 
 * __README.md__ (This readme file.)
